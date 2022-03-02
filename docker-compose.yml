@@ -16,6 +16,8 @@ services:
     ports:
       - "8080:8080"
   bot:
+    depends_on:
+      - db
     build:
       context: .
       dockerfile: Dockerfile

@@ -6,8 +6,9 @@ COPY poetry.lock pyproject.toml ./
 RUN poetry export --without-hashes -f requirements.txt -o requirements.txt
 RUN pip install -r requirements.txt
 
-RUN mkdir /bot
+RUN mkdir /app
 WORKDIR /app
-COPY bot /app/bot
+COPY . /app
+RUN chmod +x bot/startup.sh
 
-CMD ["python", "bot/main.py"]
+CMD ["bot/startup.sh"]

@@ -6,6 +6,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Text, DateTime
 
 Base = declarative_base()
 
+
 class UserMessages(Base):
     __tablename__ = 'user_messages'
     __tableargs__ = {'extend_existing': True}

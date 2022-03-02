@@ -16,6 +16,6 @@ load_dotenv(find_dotenv(), override=True)
 
 TOKEN = os.environ.get('TOKEN')
 
-postgres_bot_str = 'postgresql://postgres:test1234@localhost:5432/bot'
+postgres_bot_str = 'postgresql://postgres:test1234@host.docker.internal/bot'
 
 conn = create_engine(postgres_bot_str)
