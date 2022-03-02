@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: test-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: test1234
+      POSTGRES_DB: bot
+    restart: always
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ./config/.env
+    restart: always
